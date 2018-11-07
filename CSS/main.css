@@ -1,0 +1,21 @@
+.head {
+    font-size: 30px;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.frcst {
+    font-size: 30px;
+    margin-top: 5px;
+}
+
+.border {
+    list-style: none;
+    padding: 0;
+}
+.border li {
+    font-family: "Trebuchet MS", "Lucida Sans";
+    font-size: 20px;
+    letter-spacing: 2px;
+    transition: 0.3s all linear;
+}

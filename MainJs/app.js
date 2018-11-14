@@ -1,10 +1,3 @@
-let cityweather = {
-    name: '',
-    temperature: '',
-    humidity: '',
-    wind: ''
-}
-
 function setWeather(url)
 {
     fetch(url)
@@ -15,16 +8,13 @@ function setWeather(url)
             throw new Error('Failed to connect, please check you input')
         })
         .then(function(res) {
-            
-            cityweather.name = res.name
-            cityweather.temperature = res.main.temp
-            cityweather.humidity = res.main.humidity
-            cityweather.wind = res.wind
-            document.getElementsByClassName('head')[0].innerHTML += cityweather.name
             let list = document.getElementsByTagName('li')
-            list[0].innerHTML += cityweather.temperature
-            list[1].innerHTML += cityweather.humidity
-            list[2].innerHTML += `Speed: ${cityweather.wind.speed}, degree: ${cityweather.wind.deg}`
+            document.querySelector('.head').innerHTML += res.name
+            list[0].innerHTML += res.weather[0].main
+            list[1].innerHTML += res.main.temp + '°C'
+            list[2].innerHTML += res.main.humidity + '%'
+            list[3].innerHTML += res.main.pressure + 'mmHg'
+            list[4].innerHTML += `Speed: ${res.wind.speed} m/s, degree: ${res.wind.deg}°`
         })
         .catch(error => {throw new Error(`Failed, error ${error}`)})
 }

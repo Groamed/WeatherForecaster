@@ -1,21 +1,23 @@
+body {
+    background-color: rgb(46, 46, 46);
+    font-family: 'Allerta Stencil', sans-serif;
+}
+
 .head {
     font-size: 30px;
     font-weight: bold;
-    font-family: 'Times New Roman', Times, serif;
 }
 
-.frcst {
-    font-size: 30px;
-    margin-top: 5px;
-}
-
-.border {
+.weath {
     list-style: none;
-    padding: 0;
+    color: rgb(46, 46, 46);
+    padding: 5px 10px;
+    background: linear-gradient(45deg,#00ff00,#fefe22);
+    width: 380px;
+    border-radius: 20px;
+    
 }
-.border li {
-    font-family: "Trebuchet MS", "Lucida Sans";
-    font-size: 20px;
+.weath li {
     letter-spacing: 2px;
     transition: 0.3s all linear;
 }

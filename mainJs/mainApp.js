@@ -1,10 +1,11 @@
-let weatherSet = weatherModule()
+let weatherGet = getDataModule()
+let weatherShow = showDataModule()
 
-weatherSet.getUrl()
+weatherGet.getUrl()
     .then(function (url) {
-        return weatherSet.getWeather(url)
+        return weatherGet.getWeather(url)
     })
     .then(function (data) {
-        weatherSet.setData(data)
+        weatherShow.setData(data)
     })
     .catch(error => { throw new Error(error) })

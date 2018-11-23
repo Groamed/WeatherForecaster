@@ -13,14 +13,7 @@ function getDataModule() {
     }
 
     function getWeather(url) {
-        let data = {
-            cityname: '',
-            weather: '',
-            temp: '',
-            humidity: '',
-            pressure: '',
-            wind: { speed: '', deg: '' }
-        }
+
 
         return new Promise(function (resolve, reject) {
             fetch(url)
@@ -31,19 +24,31 @@ function getDataModule() {
                     throw new Error('Failed to connect, please check you input')
                 })
                 .then(function (res) {
-                    data.cityname = res.name
-                    data.weather = res.weather[0].main
-                    data.temp = res.main.temp
-                    data.humidity = res.main.humidity
-                    data.pressure = res.main.pressure
-                    data.wind.speed = res.wind.speed
-                    data.wind.deg = res.wind.deg
-                    resolve(data)
+                    resolve(formData(res))
                 })
                 .catch(error => { reject(`Failed, error ${error}`) })
         })
     }
 
+    function formData(rawData) {
+        let data = {
+            cityname: '',
+            weather: '',
+            temp: '',
+            humidity: '',
+            pressure: '',
+            wind: { speed: '', deg: '' }
+        }
+
+        data.cityname = rawData.name
+        data.weather = rawData.weather[0].main
+        data.temp = rawData.main.temp
+        data.humidity = rawData.main.humidity
+        data.pressure = rawData.main.pressure
+        data.wind.speed = rawData.wind.speed
+        data.wind.deg = rawData.wind.deg
+        return data;
+    }
 
     return {
         getUrl: getUrl,

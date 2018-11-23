@@ -1,5 +1,5 @@
-let weatherGet = getDataModule()
-let weatherShow = showDataModule()
+const weatherGet = getDataModule()
+const weatherShow = showDataModule()
 
 weatherGet.getUrl()
     .then(function (url) {

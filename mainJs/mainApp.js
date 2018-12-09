@@ -1,11 +1,22 @@
-const weatherGet = getDataModule()
-const weatherShow = showDataModule()
+const weatherShow = new ShowModule()
+let weatherGet
+
+if (navigator.onLine) {
+    weatherGet = new HttpDataModule()
+
+} else {
+    weatherGet = new StaticDataModule()
+}
 
 weatherGet.getUrl()
-    .then(function (url) {
-        return weatherGet.getWeather(url)
-    })
-    .then(function (data) {
-        weatherShow.setData(data)
+    .then(() => {
+        weatherGet.getWeather()
+            .then(res => {
+                return weatherGet.formData(res)
+            })
+            .then(data => {
+                weatherShow.setData(data)
+            })
+            .catch(error => { throw new Error(error) })
     })
     .catch(error => { throw new Error(error) })

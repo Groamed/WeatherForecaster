@@ -1,0 +1,22 @@
+{
+  "name": "weatherforecaster",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "start": "http-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Groamed/WeatherForecaster.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Groamed/WeatherForecaster/issues"
+  },
+  "homepage": "https://github.com/Groamed/WeatherForecaster#readme",
+  "dependencies": {
+    "http-server": "^0.11.1"
+  }
+}

@@ -11,14 +11,24 @@
 </head>
 
 <body>
-    <div class="head weath">City Name: </div>
-    <ul class="weath">
-        <li class="typeOfWeather">Weather: </li>
-        <li class="temperature">Middle Temperature: </li>
-        <li class="humidity">Humidity: </li>
-        <li class="pressure">Pressure: </li>
-        <li class="wind">Wind: </li>
-    </ul>
+    <div class="main">
+        <div class="seach-block">
+            <label class="text" for="city-input">Enter city name</label><br>
+            <input type="text" class="city-input" list="sug" onmouseover="focus()">
+        </div>
+        <br>
+        <div class="weather-block">
+            <div class="city-head weath"></div>
+            <ul class="weath">
+                <li class="typeOfWeather"></li>
+                <li class="temperature"></li>
+                <li class="humidity"></li>
+                <li class="pressure"></li>
+                <li class="wind"></li>
+            </ul>
+        </div>
+    </div>
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=c1a592c0-5ad3-41bb-b5d5-8d5ca1de979c&lang=en_RU" type="text/javascript"></script>
     <script src="./mainJs/dataModule.js"></script>
     <script src="./mainJs/httpDataModule.js"></script>
     <script src="./mainJs/staticDataModule.js"></script>

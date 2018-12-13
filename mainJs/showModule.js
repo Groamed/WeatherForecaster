@@ -1,5 +1,7 @@
 function ShowModule() {
-    this.cityName = document.querySelector('.head')
+    this.seach = document.querySelector('.seach-block')
+    this.weather = document.querySelector('.weather-block')
+    this.cityName = document.querySelector('.city-head')
     this.typeOfWeather = document.querySelector(".typeOfWeather")
     this.temperature = document.querySelector('.temperature')
     this.humidity = document.querySelector('.humidity')
@@ -8,10 +10,11 @@ function ShowModule() {
 }
 
 ShowModule.prototype.setData = function (data) {
-    this.cityName.innerHTML += data.cityname
-    this.typeOfWeather.innerHTML += data.weather
-    this.temperature.innerHTML += data.temp + '°C'
-    this.humidity.innerHTML += data.humidity + '%'
-    this.pressure.innerHTML += data.pressure + 'mmHg'
-    this.wind.innerHTML += `Speed: ${data.wind.speed} m/s, degree: ${data.wind.deg}°`
+    this.seach.style.top = '0px'
+    this.cityName.innerHTML = 'City Name: ' + data.cityname
+    this.typeOfWeather.innerHTML = 'Weather: ' + data.weather
+    this.temperature.innerHTML = 'Middle Temperature: ' + data.temp + '°C'
+    this.humidity.innerHTML = 'Humidity: ' + data.humidity + '%'
+    this.pressure.innerHTML = 'Pressure: ' + data.pressure + 'mmHg'
+    this.wind.innerHTML = `Wind: Speed: ${data.wind.speed} m/s, degree: ${data.wind.deg}°`
 }

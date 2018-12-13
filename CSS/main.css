@@ -1,9 +1,45 @@
 body {
-    background-color: rgb(46, 46, 46);
+    display: flex;
+    background-image: url(./SkyBackground.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
     font-family: 'Allerta Stencil', sans-serif;
+    justify-content: center;
 }
 
-.head {
+.main {
+    position: absolute;
+    top: 100px;
+    text-align: center;
+}
+
+.seach-block {
+    position: relative;
+    top: 100px;
+    margin-bottom: 10px;
+    transition: top 0.5s;
+}
+
+.weather-block {
+    position: relative;
+    right: 100%;
+    opacity: 0;
+    transition: right 1s,opacity 1s;
+}
+
+.city-input {
+    font-family: 'Allerta Stencil', sans-serif;
+    color: rgb(46, 46, 46);
+    background: linear-gradient(45deg,#00ff00,#fefe22);
+    font-size: 30px;
+    font-weight: bold;
+    outline: none;
+    border: 0;
+    border-radius: 20px;
+    text-indent: 20px;
+}
+
+.city-head {
     font-size: 30px;
     font-weight: bold;
 }
@@ -13,11 +49,18 @@ body {
     color: rgb(46, 46, 46);
     padding: 5px 10px;
     background: linear-gradient(45deg,#00ff00,#fefe22);
-    width: 380px;
+    width: 500px;
     border-radius: 20px;
-    
 }
 .weath li {
     letter-spacing: 2px;
+    font-size: 20px;
     transition: 0.3s all linear;
+}
+
+.text {
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+    margin: 20px;
 }

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,15 +9,31 @@
     <link rel="stylesheet" href="./CSS/main.css">
     <link href="https://fonts.googleapis.com/css?family=Allerta+Stencil" rel="stylesheet">
 </head>
+
 <body>
-    <div class="head weath">City Name: </div>
-    <ul class="weath">
-        <li>Weather: </li>
-        <li>Middle Temperature: </li>
-        <li>Humidity: </li>
-        <li>Pressure: </li>
-        <li>Wind: </li>
-    </ul>
-    <script src="./mainJs/app.js"></script>
+    <div class="main">
+        <div class="seach-block">
+            <label class="text" for="city-input">Enter city name</label><br>
+            <input type="text" class="city-input" list="sug" onmouseover="focus()">
+        </div>
+        <br>
+        <div class="weather-block">
+            <div class="city-head weath"></div>
+            <ul class="weath">
+                <li class="typeOfWeather"></li>
+                <li class="temperature"></li>
+                <li class="humidity"></li>
+                <li class="pressure"></li>
+                <li class="wind"></li>
+            </ul>
+        </div>
+    </div>
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=c1a592c0-5ad3-41bb-b5d5-8d5ca1de979c&lang=en_RU" type="text/javascript"></script>
+    <script src="./mainJs/dataModule.js"></script>
+    <script src="./mainJs/httpDataModule.js"></script>
+    <script src="./mainJs/staticDataModule.js"></script>
+    <script src="./mainJs/showModule.js"></script>
+    <script src="./mainJs/mainApp.js"></script>
 </body>
+
 </html>

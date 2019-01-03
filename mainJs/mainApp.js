@@ -1,7 +1,10 @@
+import ShowModule from './showModule'
+import HttpDataModule from './httpDataModule'
+import StaticDataModule from './staticDataModule'
+
 const weatherShow = new ShowModule()
 const weatherGet = navigator.onLine ? new HttpDataModule() : new StaticDataModule()
-let ready = false;
-const suggestions = debounce(cities, 1000)
+const suggestions = debounce(weatherShow.setSugList, 1000, weatherShow)
 
 weatherShow.seach.addEventListener('keydown', event => {
     if (event.code === 'Enter') {
@@ -10,13 +13,14 @@ weatherShow.seach.addEventListener('keydown', event => {
             .then(res => weatherGet.formData(res))
             .then(data => weatherShow.setData(data))
             .catch(error => { throw new Error(error) })
-    } else {
-        suggestions(event.target.value)
+
     }
 })
 
-ymaps.ready(() => {
-    ready = true;
+weatherShow.seach.addEventListener('keyup', event => {
+    if (!(event.code === 'Enter')) {
+        suggestions(weatherShow.cityInput.value.toLowerCase())
+    }
 })
 
 weatherShow.seach.addEventListener('click', event => {
@@ -32,7 +36,7 @@ weatherShow.seach.addEventListener('transitionend', event => {
     }
 })
 
-function debounce(func, time) {
+function debounce(func, time, that) {
     let id
     return function (...arg) {
         if (id) {
@@ -40,31 +44,9 @@ function debounce(func, time) {
         }
 
         id = setTimeout(() => {
-            func.apply(this, arg)
+            func.apply(that, arg)
             id = null
         }, time)
-    }
-}
-
-function cities(text) {
-    if (text === '') {
-        return
-    }
-    if (ready) {
-        ymaps.suggest(text, { provider: 'yandex#search' })
-            .then(items => {
-                if (document.querySelector('#sug')) {
-                    document.querySelector('#sug').remove()
-                }
-                let datalist = document.createElement('datalist')
-                items.forEach(el => {
-                    let option = document.createElement('option')
-                    option.value = el.displayName.split(',')[0]
-                    datalist.append(option)
-                });
-                datalist.id = 'sug'
-                document.body.append(datalist)
-            })
     }
 }
 

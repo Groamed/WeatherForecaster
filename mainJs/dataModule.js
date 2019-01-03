@@ -1,4 +1,4 @@
-function DataModule() {
+export default function DataModule() {
     this.data = {
         cityname: '',
         weather: '',
@@ -10,6 +10,9 @@ function DataModule() {
 }
 
 DataModule.prototype.formData = function (rawData) {
+    if (document.querySelector('.suggest')) {
+        document.querySelector('.suggest').remove()
+    }
     this.data.cityname = rawData.name
     this.data.weather = rawData.weather[0].main
     this.data.temp = rawData.main.temp

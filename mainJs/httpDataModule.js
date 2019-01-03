@@ -1,4 +1,6 @@
-function HttpDataModule() {
+import DataModule from './dataModule'
+
+export default function HttpDataModule() {
     DataModule.call(this)
     this.url = ''
     this.city = document.querySelector('.city-input')

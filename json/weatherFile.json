@@ -1,0 +1,42 @@
+{
+    "coord": {
+        "lon": 31,
+        "lat": 52.44
+    },
+    "weather": [
+        {
+            "id": 741,
+            "main": "Fog",
+            "description": "fog",
+            "icon": "50n"
+        }
+    ],
+    "base": "stations",
+    "main": {
+        "temp": 0,
+        "pressure": 1002,
+        "humidity": 98,
+        "temp_min": 0,
+        "temp_max": 0
+    },
+    "visibility": 900,
+    "wind": {
+        "speed": 5,
+        "deg": 180
+    },
+    "clouds": {
+        "all": 90
+    },
+    "dt": 1544382000,
+    "sys": {
+        "type": 1,
+        "id": 8933,
+        "message": 0.0025,
+        "country": "BY",
+        "sunrise": 1544334886,
+        "sunset": 1544362941
+    },
+    "id": 627907,
+    "name": "Homyel",
+    "cod": 200
+}

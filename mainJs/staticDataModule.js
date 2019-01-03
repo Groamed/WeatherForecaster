@@ -1,4 +1,6 @@
-function StaticDataModule() {
+import DataModule from './dataModule'
+
+export default function StaticDataModule() {
     DataModule.call(this)
 }
 
